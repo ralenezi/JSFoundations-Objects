@@ -12,6 +12,7 @@
  ****************************************************************/
 function getChannelName(channel) {
   // Your code here
+  return channel.name
 }
 
 /**************************************************************
@@ -21,6 +22,7 @@ function getChannelName(channel) {
  ****************************************************************/
 function numberOfVideos(channel) {
   // Your code here
+  return channel.videos.length
 }
 
 /**************************************************************
@@ -34,6 +36,7 @@ function numberOfVideos(channel) {
  ****************************************************************/
 function channelHasVideo(videoTitle, channel) {
   // Your code here
+  return channel.videos.some((element) => element.title === videoTitle)
 }
 
 /**************************************************************
@@ -46,6 +49,7 @@ function channelHasVideo(videoTitle, channel) {
  ****************************************************************/
 function getChannelByName(channelName, channels) {
   // Your code here
+  return channels.find((element) => channelName === element.name)
 }
 
 /**************************************************************
@@ -58,6 +62,9 @@ function getChannelByName(channelName, channels) {
  ****************************************************************/
 function getChannelByVideoTitle(videoTitle, channels) {
   // Your code here
+  return channels.find((element) =>
+    element.videos.some((vid) => vid.title === videoTitle)
+  )
 }
 
 /**************************************************************
@@ -70,6 +77,10 @@ function getChannelByVideoTitle(videoTitle, channels) {
  ****************************************************************/
 function searchChannels(query, channels) {
   // Your code here
+  return channels.filter(
+    (element) =>
+      element.name.includes(query) || element.description.includes(query)
+  )
 }
 
 module.exports = {
@@ -79,4 +90,4 @@ module.exports = {
   getChannelByName,
   getChannelByVideoTitle,
   searchChannels,
-};
+}
